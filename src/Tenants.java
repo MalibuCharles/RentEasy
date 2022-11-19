@@ -1,19 +1,28 @@
 public class Tenants {
-    private String name;
+    private String fname, lname;
     private int creditScore, income;
 
     public Tenants() {
-        this.name = name;
+        this.fname = fname;
+        this.lname = lname;
         this.creditScore = creditScore;
         this.income = income;
     }
 
-    public String getName() {
-        return name;
+    public String getFname() {
+        return fname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     public int getCreditScore() {
@@ -35,7 +44,8 @@ public class Tenants {
     @Override
     public String toString() {
         return "Tenants{" +
-                "Name='" + name + '\'' +
+                "First Name='" + fname + '\'' +
+                ", Last Name='" + lname + '\'' +
                 ", Credit Score=" + creditScore +
                 ", Income=" + income +
                 '}';

@@ -27,9 +27,12 @@ public class Apply {
                         "Must a credit score over 700 and income must be 3x the rent.\n" +
                         "Sound like you apply today");
                 Tenants tenants = new Tenants();
-                System.out.println("What is your name?");
-                String name = scan.nextLine();
-                tenants.setName(name);
+                System.out.println("What is your first name?");
+                String fName = scan.nextLine();
+                tenants.setFname(fName);
+                System.out.println("What is your last name?");
+                String lName = scan.nextLine();
+                tenants.setFname(lName);
                 System.out.println("What is your credit score?");
                 int credit = scan.nextInt();
                 tenants.setCreditScore(credit);
@@ -40,8 +43,20 @@ public class Apply {
                 manager.create(tenants);
                 System.out.println("Would you like to apply for another unit?");
                 loopAnswer = scan.nextLine();
+            } 
+        } else if (input == 2) {
+            System.out.println("What is your first name?");
+            int searchName = scan.nextInt();
+            System.out.println(manager.read(searchName).toString());
+        } else if (input == 3) {
+            System.out.println("How much is your new income?");
+            int uppdateIncome = scan.nextInt();
+            manager.update(uppdateIncome);
+        } else if (input == 4) {
 
-            }
+            
+        } else if (input == 5) {
+            
         }
     }
 }
