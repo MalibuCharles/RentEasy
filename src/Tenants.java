@@ -31,4 +31,13 @@ public class Tenants {
     public void setIncome(int income) {
         this.income = income;
     }
+
+    @Override
+    public String toString() {
+        return "Tenants{" +
+                "Name='" + name + '\'' +
+                ", Credit Score=" + creditScore +
+                ", Income=" + income +
+                '}';
+    }
 }
