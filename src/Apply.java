@@ -53,7 +53,7 @@ public class Apply {
                 System.out.println("What is your first name?");
                 Scanner scans = new Scanner(System.in);
                 String searchName = scans.nextLine();
-                System.out.println(manager.read(searchName));
+                System.out.println(manager.read(searchName).toString());
             } else if (input == 3) {
                 System.out.println("How much is your new income?");
                 Scanner scans = new Scanner(System.in);
