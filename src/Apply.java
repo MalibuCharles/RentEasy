@@ -19,20 +19,22 @@ public class Apply {
                     "2.View your past applications\n" +
                     "3.Update an application\n" +
                     "4.Withdraw an application\n" +
-                    "5.Maintenance Request");
+                    "5.Maintenance Request\n" +
+                    "6.See Maintenance Requests");
             int input = scan.nextInt();
 
             if (input == 1) {
                 System.out.println("Would you like live at our luxurious beach side condos?\n" +
                         "Here is our requirements to be approved:\n" +
                         "Must a credit score over 700 and income must be 3x the rent.\n" +
-                        "Sound like you apply today");
+                        "Sound like you apply today!");
                 Tenants tenants = new Tenants();
                 System.out.println("What is your first name?");
-                String fName = scan.nextLine();
+                Scanner scans = new Scanner(System.in);
+                String fName = scans.nextLine();
                 tenants.setFname(fName);
                 System.out.println("What is your last name?");
-                String lName = scan.nextLine();
+                String lName = scans.nextLine();
                 tenants.setFname(lName);
                 System.out.println("What is your credit score?");
                 int credit = scan.nextInt();
@@ -49,21 +51,37 @@ public class Apply {
                 }
             } else if (input == 2) {
                 System.out.println("What is your first name?");
-                String searchName = scan.nextLine();
-                System.out.println(manager.read(searchName).toString());
+                Scanner scans = new Scanner(System.in);
+                String searchName = scans.nextLine();
+                System.out.println(manager.read(searchName));
             } else if (input == 3) {
                 System.out.println("How much is your new income?");
-                String updateIncome = scan.nextLine();
+                Scanner scans = new Scanner(System.in);
+                String updateIncome = scans.nextLine();
                 manager.update(updateIncome);
             } else if (input == 4) {
                 System.out.println("What is your name?");
-                String deleteApplication = scan.nextLine();
+                Scanner scans = new Scanner(System.in);
+                String deleteApplication = scans.nextLine();
                 manager.delete(deleteApplication);
             } else if (input == 5) {
+                Maintenance requests = new Maintenance();
                 System.out.println("What is your unit number?");
+                Scanner scans = new Scanner(System.in);
+                int unit = scan.nextInt();
+                requests.setUnitNumber(unit);
                 System.out.println("What is the issue?");
+                Scanner scanz = new Scanner(System.in);
+                String issue = scanz.nextLine();
+                requests.setIssue(issue);
                 System.out.println("Any pets inside the unit?");
+                Scanner scanx = new Scanner(System.in);
+                Boolean pet = scanx.hasNextBoolean();
+                requests.setPet(pet);
                 System.out.println("We will be out to resolve your issue in 24 hours!");
+                manager.createRequest(requests);
+            } else if (input == 6) {
+                manager.display();
             }
         }
     }

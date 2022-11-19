@@ -1,8 +1,14 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class ManageApplications {
     LinkedList<Tenants> list = new LinkedList<>();
+    ArrayList<Maintenance> request = new ArrayList<>();
+
+    public void createRequest(Maintenance needs){
+        request.add(needs);
+    }
 
     public void create(Tenants applications){
         list.add(applications);
@@ -30,6 +36,12 @@ public class ManageApplications {
         if (name != null){
             list.remove(apps);
             System.out.println("We have deleted your application.");
+        }
+    }
+
+    public void display(){
+        for (Maintenance need: request) {
+            System.out.println(need.toString());
         }
     }
 }
