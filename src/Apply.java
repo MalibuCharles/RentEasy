@@ -10,18 +10,19 @@ public class Apply {
         Scanner scan = new Scanner(System.in);
 
         String loopAnswer = "y";
+        int minIncome = 4000;
+        int minScore = 700;
+        while (true) {
+            System.out.println("Welcome to Malibu Estates.\n" +
+                    "What would you like to do today?\n" +
+                    "1.Apply for an apartment\n" +
+                    "2.View your past applications\n" +
+                    "3.Update an application\n" +
+                    "4.Withdraw an application\n" +
+                    "5.Maintenance Request");
+            int input = scan.nextInt();
 
-        System.out.println("Welcome to Malibu Estates.\n" +
-                "What would you like to do today?\n" +
-                "1.Apply for an apartment\n" +
-                "2.View your past applications\n" +
-                "3.Update an application\n" +
-                "4.Withdraw an application\n" +
-                "5.Maintenance Request");
-        int input = scan.nextInt();
-
-        if (input == 1) {
-            while (loopAnswer.equals("y")) {
+            if (input == 1) {
                 System.out.println("Would you like live at our luxurious beach side condos?\n" +
                         "Here is our requirements to be approved:\n" +
                         "Must a credit score over 700 and income must be 3x the rent.\n" +
@@ -41,22 +42,29 @@ public class Apply {
                 tenants.setIncome(income);
 
                 manager.create(tenants);
-                System.out.println("Would you like to apply for another unit?");
-                loopAnswer = scan.nextLine();
-            } 
-        } else if (input == 2) {
-            System.out.println("What is your first name?");
-            int searchName = scan.nextInt();
-            System.out.println(manager.read(searchName).toString());
-        } else if (input == 3) {
-            System.out.println("How much is your new income?");
-            int uppdateIncome = scan.nextInt();
-            manager.update(uppdateIncome);
-        } else if (input == 4) {
-
-            
-        } else if (input == 5) {
-            
+                if (income >= minIncome && credit >= minScore) {
+                    System.out.println("You are approved for this unit!");
+                } else {
+                    System.out.println("Sorry, you don't meet the minuim requirements. Try again in the future.");
+                }
+            } else if (input == 2) {
+                System.out.println("What is your first name?");
+                String searchName = scan.nextLine();
+                System.out.println(manager.read(searchName).toString());
+            } else if (input == 3) {
+                System.out.println("How much is your new income?");
+                String updateIncome = scan.nextLine();
+                manager.update(updateIncome);
+            } else if (input == 4) {
+                System.out.println("What is your name?");
+                String deleteApplication = scan.nextLine();
+                manager.delete(deleteApplication);
+            } else if (input == 5) {
+                System.out.println("What is your unit number?");
+                System.out.println("What is the issue?");
+                System.out.println("Any pets inside the unit?");
+                System.out.println("We will be out to resolve your issue in 24 hours!");
+            }
         }
     }
 }
