@@ -68,7 +68,7 @@ public class Apply {
                 Maintenance requests = new Maintenance();
                 System.out.println("What is your unit number?");
                 Scanner scans = new Scanner(System.in);
-                int unit = scan.nextInt();
+                int unit = scans.nextInt();
                 requests.setUnitNumber(unit);
                 System.out.println("What is the issue?");
                 Scanner scanz = new Scanner(System.in);
